@@ -1,6 +1,6 @@
 ---
 layout: home
-hero_title: "Fiber & Thread"
+hero_title: "Rhianna's Fiber Arts"
 hero_subtitle: "Exploring color, texture, and the meditative rhythm of fiber arts."
 # hero_image: assets/images/hero.jpg   ← uncomment and set this to your hero photo
 ---
