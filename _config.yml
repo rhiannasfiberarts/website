@@ -1,14 +1,14 @@
 title: "Rhianna's Fiber Arts"
 description: "A fiber art blog — weaving, knitting, embroidery, and everything in between."
 baseurl: ""
-url: ""
+url: "https://rhiannasfiberarts.github.io"
 
 # Change these two lines to match your GitHub username and repo name
 # Example: if your repo is github.com/janedoe/fiber-blog
 #   github_username: janedoe
 #   repository: fiber-blog
 github_username: rhiannasfiberarts
-repository: website
+repository: rhiannasfiberarts.github.io
 
 # Author info (shown in footer)
 author:
