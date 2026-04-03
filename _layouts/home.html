@@ -1,0 +1,50 @@
+---
+layout: default
+---
+
+<section class="hero">
+  <div class="hero-inner">
+    {% if page.hero_image %}
+    <div class="hero-image">
+      <img src="{{ page.hero_image | relative_url }}" alt="{{ site.title }}">
+    </div>
+    {% endif %}
+    <div class="hero-text">
+      <h1>{{ page.hero_title | default: site.title }}</h1>
+      <p class="hero-subtitle">{{ page.hero_subtitle | default: site.description }}</p>
+      <a href="{{ '/blog/' | relative_url }}" class="btn">Read the Blog</a>
+    </div>
+  </div>
+</section>
+
+{% if page.content != "" %}
+<section class="home-about container">
+  {{ content }}
+</section>
+{% endif %}
+
+<section class="home-recent container">
+  <h2 class="section-heading">Recent Posts</h2>
+  <div class="post-list">
+    {% for post in site.posts limit:3 %}
+    <article class="post-card">
+      {% if post.cover_image %}
+      <a href="{{ post.url | relative_url }}" class="post-card-image">
+        <img src="{{ post.cover_image | relative_url }}" alt="{{ post.title }}">
+      </a>
+      {% endif %}
+      <div class="post-card-body">
+        <time class="post-date">{{ post.date | date: "%B %-d, %Y" }}</time>
+        <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+        <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+        <a href="{{ post.url | relative_url }}" class="read-more">Read more &rarr;</a>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+  {% if site.posts.size > 3 %}
+  <div class="view-all">
+    <a href="{{ '/blog/' | relative_url }}" class="btn btn-outline">All Posts</a>
+  </div>
+  {% endif %}
+</section>
