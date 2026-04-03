@@ -1,0 +1,57 @@
+---
+layout: default
+---
+
+<article class="post container">
+  <header class="post-header">
+    {% if page.cover_image %}
+    <div class="post-cover">
+      <img src="{{ page.cover_image | relative_url }}" alt="{{ page.title }}">
+    </div>
+    {% endif %}
+    <div class="post-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+      {% if page.tags and page.tags.size > 0 %}
+      <span class="post-tags">
+        {% for tag in page.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
+      </span>
+      {% endif %}
+    </div>
+    <h1 class="post-title">{{ page.title }}</h1>
+  </header>
+
+  <div class="post-body">
+    {{ content }}
+  </div>
+
+  {% if page.images and page.images.size > 0 %}
+  <div class="post-gallery">
+    <h2>Photos</h2>
+    <div class="gallery-grid">
+      {% for image in page.images %}
+      <div class="gallery-item">
+        <img src="{{ image | relative_url }}" alt="{{ page.title }}">
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+  <footer class="post-footer">
+    <nav class="post-nav">
+      {% if page.previous.url %}
+      <a href="{{ page.previous.url | relative_url }}" class="post-nav-prev">
+        <span class="nav-label">&larr; Older</span>
+        <span class="nav-title">{{ page.previous.title }}</span>
+      </a>
+      {% endif %}
+      {% if page.next.url %}
+      <a href="{{ page.next.url | relative_url }}" class="post-nav-next">
+        <span class="nav-label">Newer &rarr;</span>
+        <span class="nav-title">{{ page.next.title }}</span>
+      </a>
+      {% endif %}
+    </nav>
+    <a href="{{ '/blog/' | relative_url }}" class="back-to-blog">&larr; All posts</a>
+  </footer>
+</article>
