@@ -5,7 +5,6 @@ date: 2026-04-03
 cover_image: assets/images/IMG_1851.jpeg   ← uncomment and set to your photo
 tags:
   - intro
-  - weaving
 # images:                   ← list additional photos for this post
 #   - assets/images/wip1.jpg
 #   - assets/images/wip2.jpg
