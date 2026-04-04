@@ -11,40 +11,44 @@ permalink: /gallery/
 
   <div class="gallery-grid gallery-grid--large">
     {% assign all_images = site.static_files | where_exp: "file", "file.path contains '/assets/images/'" %}
+    {% assign shown_paths = "" | split: "" %}
 
-    {% for image in all_images %}
-      {% assign linked_post = nil %}
+    {% comment %}Post-linked images, newest post first{% endcomment %}
+    {% for post in site.posts %}
+      {% assign post_imgs = "" | split: "" %}
+      {% if post.cover_image %}
+        {% assign post_imgs = post_imgs | push: post.cover_image %}
+      {% endif %}
+      {% if post.images %}
+        {% for img in post.images %}
+          {% assign post_imgs = post_imgs | push: img %}
+        {% endfor %}
+      {% endif %}
 
-      {% for post in site.posts %}
-        {% if post.cover_image %}
-          {% assign cover_path = post.cover_image | prepend: "/" %}
-          {% if cover_path == image.path %}
-            {% assign linked_post = post %}
-          {% endif %}
-        {% endif %}
-        {% if post.images %}
-          {% for img in post.images %}
-            {% assign img_path = img | prepend: "/" %}
-            {% if img_path == image.path %}
-              {% assign linked_post = post %}
-            {% endif %}
-          {% endfor %}
-        {% endif %}
+      {% for img_src in post_imgs %}
+        {% assign img_path = img_src | prepend: "/" %}
+        {% unless shown_paths contains img_path %}
+          {% assign shown_paths = shown_paths | push: img_path %}
+          <div class="gallery-item gallery-item--linked">
+            <a href="{{ post.url | relative_url }}" title="{{ post.title }}">
+              <img src="{{ img_src | relative_url }}" alt="{{ post.title }}">
+              <div class="gallery-overlay">
+                <span class="gallery-overlay-text">{{ post.title }}</span>
+              </div>
+            </a>
+          </div>
+        {% endunless %}
       {% endfor %}
-
-      <div class="gallery-item {% if linked_post %}gallery-item--linked{% endif %}">
-        {% if linked_post %}
-          <a href="{{ linked_post.url | relative_url }}" title="{{ linked_post.title }}">
-            <img src="{{ image.path | relative_url }}" alt="{{ linked_post.title }}">
-            <div class="gallery-overlay">
-              <span class="gallery-overlay-text">{{ linked_post.title }}</span>
-            </div>
-          </a>
-        {% else %}
-          <img src="{{ image.path | relative_url }}" alt="Gallery photo">
-        {% endif %}
-      </div>
-
     {% endfor %}
+
+    {% comment %}Standalone images not associated with any post{% endcomment %}
+    {% for image in all_images %}
+      {% unless shown_paths contains image.path %}
+        <div class="gallery-item">
+          <img src="{{ image.path | relative_url }}" alt="Gallery photo">
+        </div>
+      {% endunless %}
+    {% endfor %}
+
   </div>
 </div>
