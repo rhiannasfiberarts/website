@@ -2,7 +2,7 @@
 layout: post
 title: "Welcome to Rhianna's Fiber Arts"
 date: 2026-04-03
-cover_image: assets/images/IMG_1851.jpeg
+cover_image: assets/images/IMG_1851.jpg
 tags:
   - intro
 # images:                   ← list additional photos for this post
