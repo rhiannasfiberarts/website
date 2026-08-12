@@ -1,17 +1,25 @@
 /* =========================================================
-   Rhianna's Fiber Arts — Main Stylesheet
+   Rhi's Fiber Art — Main Stylesheet
    ========================================================= */
 
 /* --- Custom Properties --- */
 :root {
-  --color-bg:        #f0e6d0;
-  --color-surface:   #f7eed8;
-  --color-border:    #d9c9a8;
-  --color-text:      #2c1f0e;
-  --color-muted:     #7a6340;
-  --color-accent:    #8b5e3c;
-  --color-accent-dk: #6b4228;
-  --color-tag-bg:    #e4d4b0;
+  --color-bg:        #efe6d3;
+  --color-surface:   #f5edd0;
+  --color-border:    #d2c7ac;
+  --color-text:      #2a2823;
+  --color-muted:     #5c5a50;
+
+  /* Green — primary accent (buttons, CTAs, decorative) */
+  --color-accent:      #3f4f2e;
+  --color-accent-dk:   #2e3a21;
+
+  /* Slate — secondary accent (links, nav) */
+  --color-accent-2:    #2f4a5e; /* AA-safe for text */
+  --color-accent-2-lt: #587994; /* large UI / non-text only */
+  --color-accent-2-dk: #1f3547;
+
+  --color-tag-bg:    #dee6d2;
 
   --font-serif:  'Playfair Display', Georgia, serif;
   --font-sans:   'Lato', system-ui, sans-serif;
@@ -40,8 +48,8 @@ body {
 
 img { display: block; max-width: 100%; height: auto; }
 
-a { color: var(--color-accent); text-decoration: none; }
-a:hover { color: var(--color-accent-dk); }
+a { color: var(--color-accent-2); text-decoration: none; }
+a:hover { color: var(--color-accent-2-dk); }
 
 h1, h2, h3, h4 {
   font-family: var(--font-serif);
@@ -106,7 +114,7 @@ h1, h2, h3, h4 {
 
 .site-nav a:hover,
 .site-nav a.active {
-  color: var(--color-accent);
+  color: var(--color-accent-2);
 }
 
 /* =========================================================
@@ -131,7 +139,7 @@ h1, h2, h3, h4 {
   display: inline-block;
   padding: 0.65rem 1.5rem;
   background: var(--color-accent);
-  color: #fff;
+  color: var(--color-bg);
   border-radius: var(--radius);
   font-size: 0.875rem;
   font-weight: 400;
@@ -140,7 +148,7 @@ h1, h2, h3, h4 {
   transition: background 0.15s;
 }
 
-.btn:hover { background: var(--color-accent-dk); color: #fff; }
+.btn:hover { background: var(--color-accent-dk); color: var(--color-bg); }
 
 .btn-outline {
   background: transparent;
@@ -150,7 +158,7 @@ h1, h2, h3, h4 {
 
 .btn-outline:hover {
   background: var(--color-accent);
-  color: #fff;
+  color: var(--color-bg);
 }
 
 /* =========================================================
@@ -242,7 +250,7 @@ h1, h2, h3, h4 {
 }
 
 .post-card:hover {
-  box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+  box-shadow: 0 4px 20px rgba(42, 40, 35, 0.1);
 }
 
 /* Card with image: side by side on wider screens */
@@ -293,7 +301,7 @@ h1, h2, h3, h4 {
 
 .post-card-body h2 a:hover,
 .post-card-body h3 a:hover {
-  color: var(--color-accent);
+  color: var(--color-accent-2);
 }
 
 .post-excerpt {
@@ -305,7 +313,7 @@ h1, h2, h3, h4 {
 .read-more {
   font-size: 0.875rem;
   font-weight: 400;
-  color: var(--color-accent);
+  color: var(--color-accent-2);
   margin-top: auto;
 }
 
@@ -447,7 +455,7 @@ h1, h2, h3, h4 {
   font-size: 0.875rem;
 }
 
-.post-nav a:hover { color: var(--color-accent); }
+.post-nav a:hover { color: var(--color-accent-2); }
 
 .nav-label {
   font-size: 0.75rem;
@@ -467,7 +475,7 @@ h1, h2, h3, h4 {
   color: var(--color-muted);
 }
 
-.back-to-blog:hover { color: var(--color-accent); }
+.back-to-blog:hover { color: var(--color-accent-2); }
 
 /* =========================================================
    GALLERY FILTER
@@ -507,7 +515,7 @@ h1, h2, h3, h4 {
 
 .filter-toggle:hover,
 .filter-toggle[aria-expanded="true"] {
-  border-color: var(--color-accent);
+  border-color: var(--color-accent-2);
 }
 
 .filter-toggle-label {
@@ -536,7 +544,7 @@ h1, h2, h3, h4 {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
-  box-shadow: 0 8px 28px rgba(44, 31, 14, 0.16);
+  box-shadow: 0 8px 28px rgba(42, 40, 35, 0.16);
   z-index: 50;
   overflow: hidden;
 }
@@ -639,7 +647,7 @@ h1, h2, h3, h4 {
 .gallery-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(45, 41, 38, 0.55);
+  background: rgba(42, 40, 35, 0.55);
   display: flex;
   align-items: flex-end;
   padding: 0.75rem 1rem;
