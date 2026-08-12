@@ -14,6 +14,10 @@
   --color-accent:      #3f4f2e;
   --color-accent-dk:   #2e3a21;
 
+  /* Sage — header/hero/footer backgrounds */
+  --color-sage:        #6e8257; /* decorative / large UI only */
+  --color-sage-dk:     #4f6140; /* AA-safe with cream text at body size */
+
   /* Slate — secondary accent (links, nav) */
   --color-accent-2:    #2f4a5e; /* AA-safe for text */
   --color-accent-2-lt: #587994; /* large UI / non-text only */
@@ -73,8 +77,8 @@ h1, h2, h3, h4 {
    HEADER
    ========================================================= */
 .site-header {
-  background: var(--color-surface);
-  border-bottom: 1px solid var(--color-border);
+  background: var(--color-sage-dk);
+  border-bottom: 1px solid var(--color-accent-dk);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -95,7 +99,7 @@ h1, h2, h3, h4 {
   font-family: var(--font-serif);
   font-size: 1.4rem;
   font-weight: 600;
-  color: var(--color-text);
+  color: var(--color-bg);
   letter-spacing: 0.01em;
   white-space: nowrap;
 }
@@ -111,13 +115,15 @@ h1, h2, h3, h4 {
   font-weight: 400;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--color-muted);
-  transition: color 0.15s;
+  color: var(--color-bg);
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.15s;
 }
 
 .site-nav a:hover,
 .site-nav a.active {
-  color: var(--color-accent-2);
+  border-bottom-color: var(--color-bg);
 }
 
 /* =========================================================
@@ -126,12 +132,12 @@ h1, h2, h3, h4 {
 .site-main { flex: 1; padding-bottom: 4rem; }
 
 .site-footer {
-  background: var(--color-surface);
-  border-top: 1px solid var(--color-border);
+  background: var(--color-sage-dk);
+  border-top: 1px solid var(--color-accent-dk);
   padding: 2.5rem 1.5rem;
   text-align: center;
   font-size: 0.875rem;
-  color: var(--color-muted);
+  color: var(--color-bg);
   line-height: 1.8;
 }
 
@@ -185,9 +191,19 @@ h1, h2, h3, h4 {
    HERO (Home page)
    ========================================================= */
 .hero {
-  background: var(--color-surface);
-  border-bottom: 1px solid var(--color-border);
+  background: var(--color-sage-dk);
+  border-bottom: 1px solid var(--color-accent-dk);
   margin-bottom: 3.5rem;
+}
+
+.hero .btn {
+  background: var(--color-bg);
+  color: var(--color-accent-dk);
+}
+
+.hero .btn:hover {
+  background: var(--color-tag-bg);
+  color: var(--color-accent-dk);
 }
 
 .hero-inner {
@@ -210,11 +226,12 @@ h1, h2, h3, h4 {
 .hero-text h1 {
   font-size: clamp(2.2rem, 5vw, 3.2rem);
   margin-bottom: 0.75rem;
+  color: var(--color-bg);
 }
 
 .hero-subtitle {
   font-size: 1.125rem;
-  color: var(--color-muted);
+  color: var(--color-bg);
   margin-bottom: 1.75rem;
   max-width: 480px;
 }
