@@ -1,7 +1,7 @@
-title: "Rhianna's Fiber Arts"
-description: "All things fiber fun"
+title: "Rhi's Fiber Art"
+description: "All things fiber art!"
 baseurl: ""
-url: "https://rhiannasfiberarts.github.io"
+url: "https://rhisfiberart.com"
 
 # Change these two lines to match your GitHub username and repo name
 # Example: if your repo is github.com/janedoe/fiber-blog
@@ -18,6 +18,7 @@ author:
 # Jekyll settings
 markdown: kramdown
 permalink: /blog/:year/:month/:day/:title/
+
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
